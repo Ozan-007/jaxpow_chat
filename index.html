@@ -81,10 +81,12 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (inputMsg.value) {
+      if (inputMsg.value && inputName.value) {
         socket.emit("username", inputName.value);
         socket.emit("chat message", inputMsg.value);
         inputMsg.value = "";
+      } else {
+        alert("Enter your name and your message");
       }
     });
 
